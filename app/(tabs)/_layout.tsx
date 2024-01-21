@@ -78,7 +78,7 @@ export default function TabLayout() {
       </Tabs>
 
       <FAB
-        icon="bookmark"
+        icon="bookmark-outline"
         style={{
           position: "absolute",
           bottom: 30,

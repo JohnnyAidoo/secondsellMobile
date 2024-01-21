@@ -46,14 +46,14 @@ export default function TabOneScreen() {
           <View style={{ width: "50%", backgroundColor: "white" }}>
             <Animatable.View animation={"fadeInDownBig"}>
               <Text
-                variant="displayLarge"
+                variant="displayMedium"
                 style={{ fontWeight: "bold", color: Colors.light.tint }}
               >
                 New
               </Text>
             </Animatable.View>
             <Animatable.View animation={"fadeInUpBig"}>
-              <Text variant="displayLarge" style={{ fontWeight: "bold" }}>
+              <Text variant="displayMedium" style={{ fontWeight: "bold" }}>
                 Arrivals
               </Text>
               <Text>
@@ -77,15 +77,17 @@ export default function TabOneScreen() {
           scrollEnabled={false}
           style={{ width: WIDTH, padding: 10 }}
           numColumns={2}
-          renderItem={({ item }) => (
-            <CardComp
-              id={item.id}
-              key={item.id}
-              title={item.title}
-              price={item.price}
-              category={item.category}
-              image={item.image}
-            />
+          renderItem={({ item, index }) => (
+            <Animatable.View animation={"fadeInDown"} delay={index * 100}>
+              <CardComp
+                id={item.id}
+                key={item.id}
+                title={item.title}
+                price={item.price}
+                category={item.category}
+                image={item.image}
+              />
+            </Animatable.View>
           )}
           data={products}
         />
