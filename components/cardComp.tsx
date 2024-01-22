@@ -8,7 +8,7 @@ function CardComp(props: {
   id: number;
   title: string;
   price: string;
-  category: string;
+  category?: string;
   description?: string;
   image: string;
 }) {
@@ -28,14 +28,15 @@ function CardComp(props: {
     >
       <Link href={`/${props.id}`}>
         <Image
-          style={{ aspectRatio: 1, width: "100%" }}
+          width={150}
+          height={200}
           source={{
             uri: props.image,
           }}
         />
       </Link>
       <View style={{ gap: 5, display: "flex", backgroundColor: "white" }}>
-        <Text id="title" variant="headlineSmall" style={{ fontWeight: "bold" }}>
+        <Text id="title" variant="titleMedium" style={{ fontWeight: "bold" }}>
           {props.title}
         </Text>
         <Text id="category" variant="labelLarge">

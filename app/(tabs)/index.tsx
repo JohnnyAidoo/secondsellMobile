@@ -12,17 +12,19 @@ export default function TabOneScreen() {
   type ProductType = {
     id: number;
     title: string;
-    price: string;
-    category: string;
+    price: string | number;
     description: string;
-    image: string;
+    images: string[];
+    creationAt: string;
+    updatedAt: string;
+    category: any;
   };
 
   const [products, setProducts] = useState<ProductType[]>();
   const WIDTH = Dimensions.get("screen").width;
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((res: any) => {
+    axios.get("https://api.escuelajs.co/api/v1/products").then((res: any) => {
       setProducts(res.data);
     });
   });
@@ -83,9 +85,8 @@ export default function TabOneScreen() {
                 id={item.id}
                 key={item.id}
                 title={item.title}
-                price={item.price}
-                category={item.category}
-                image={item.image}
+                price={item.price as string}
+                image={item.images[1]}
               />
             </Animatable.View>
           )}
