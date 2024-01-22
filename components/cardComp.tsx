@@ -8,9 +8,15 @@ function CardComp(props: {
   id: number;
   title: string;
   price: string;
-  category?: string;
   description?: string;
   image: string;
+  category: {
+    id: number;
+    name: string;
+    image: string;
+    creationAt: string;
+    updatedAt: string;
+  };
 }) {
   const WIDTH = Dimensions.get("screen").width;
   return (
@@ -40,7 +46,7 @@ function CardComp(props: {
           {props.title}
         </Text>
         <Text id="category" variant="labelLarge">
-          {props.category}
+          {props.category.name}
         </Text>
         <Text
           variant="headlineMedium"

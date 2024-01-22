@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { Dimensions, FlatList, Image, ScrollView } from "react-native";
 import { Surface, Text } from "react-native-paper";
-import { View } from "../../components/Themed";
-import Colors from "../../constants/Colors";
-import CardComp from "../../components/cardComp";
+import Colors from "../../../constants/Colors";
+import CardComp from "../../../components/cardComp";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import * as Animatable from "react-native-animatable";
+import { View } from "../../../components/Themed";
 
 export default function TabOneScreen() {
   type ProductType = {
@@ -17,16 +17,24 @@ export default function TabOneScreen() {
     images: string[];
     creationAt: string;
     updatedAt: string;
-    category: any;
+    category: {
+      id: number;
+      name: string;
+      image: string;
+      creationAt: string;
+      updatedAt: string;
+    };
   };
 
   const [products, setProducts] = useState<ProductType[]>();
   const WIDTH = Dimensions.get("screen").width;
 
   useEffect(() => {
-    axios.get("https://api.escuelajs.co/api/v1/products").then((res: any) => {
-      setProducts(res.data);
-    });
+    axios
+      .get("https://api.escuelajs.co/api/v1/categories/3/products")
+      .then((res: any) => {
+        setProducts(res.data);
+      });
   });
   return (
     <>
@@ -85,6 +93,7 @@ export default function TabOneScreen() {
                 id={item.id}
                 key={item.id}
                 title={item.title}
+                category={item.category}
                 price={item.price as string}
                 image={item.images[1]}
               />
