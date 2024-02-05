@@ -10,13 +10,7 @@ function CardComp(props: {
   price: string;
   description?: string;
   image: string;
-  category: {
-    id: number;
-    name: string;
-    image: string;
-    creationAt: string;
-    updatedAt: string;
-  };
+  category: string;
 }) {
   const WIDTH = Dimensions.get("screen").width;
   return (
@@ -34,7 +28,9 @@ function CardComp(props: {
     >
       <Link href={`/${props.id}`}>
         <Image
-          width={150}
+          resizeMethod="resize"
+          resizeMode="contain"
+          width={200}
           height={200}
           source={{
             uri: props.image,
@@ -46,7 +42,7 @@ function CardComp(props: {
           {props.title}
         </Text>
         <Text id="category" variant="labelLarge">
-          {props.category.name}
+          {props.category}
         </Text>
         <Text
           variant="headlineMedium"

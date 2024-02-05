@@ -8,7 +8,7 @@ import axios from "axios";
 import * as Animatable from "react-native-animatable";
 import { View } from "../../../components/Themed";
 
-export default function Electronics() {
+export default function MenCloths() {
   type ProductType = {
     id: number;
     title: string;
@@ -23,7 +23,7 @@ export default function Electronics() {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products/category/electronics")
+      .get("https://fakestoreapi.com/products/category/men's%20clothing")
       .then((res: any) => {
         setProducts(res.data);
       });

@@ -8,22 +8,14 @@ import axios from "axios";
 import * as Animatable from "react-native-animatable";
 import { View } from "../../../components/Themed";
 
-export default function TabOneScreen() {
+export default function WomenCloths() {
   type ProductType = {
     id: number;
     title: string;
+    category: string;
     price: string | number;
     description: string;
-    images: string[];
-    creationAt: string;
-    updatedAt: string;
-    category: {
-      id: number;
-      name: string;
-      image: string;
-      creationAt: string;
-      updatedAt: string;
-    };
+    image: string;
   };
 
   const [products, setProducts] = useState<ProductType[]>();
@@ -31,7 +23,7 @@ export default function TabOneScreen() {
 
   useEffect(() => {
     axios
-      .get("https://api.escuelajs.co/api/v1/categories/1/products")
+      .get("https://fakestoreapi.com/products/category/women's%20clothing")
       .then((res: any) => {
         setProducts(res.data);
       });
@@ -95,7 +87,7 @@ export default function TabOneScreen() {
                 title={item.title}
                 category={item.category}
                 price={item.price as string}
-                image={item.images[1]}
+                image={item.image}
               />
             </Animatable.View>
           )}
