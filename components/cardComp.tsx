@@ -28,10 +28,10 @@ function CardComp(props: {
     >
       <Link href={`/${props.id}`}>
         <Image
-          resizeMethod="resize"
-          resizeMode="contain"
-          width={200}
-          height={200}
+          resizeMode="center"
+          resizeMethod="scale"
+          width={100}
+          height={100}
           source={{
             uri: props.image,
           }}
