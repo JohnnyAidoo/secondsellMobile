@@ -34,9 +34,9 @@ function DrawerLayout() {
                 backgroundColor: "transparent",
               }}
             >
-              <Pressable onPress={() => {}}>
+              {/* <Pressable onPress={() => {}}>
                 <TabBarIcon name="search1" color="black" />
-              </Pressable>
+              </Pressable> */}
               <Pressable onPress={() => {}}>
                 <Avatar.Image
                   size={25}

@@ -1,11 +1,11 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { Link, Tabs } from "expo-router";
+import { Link, Tabs, router } from "expo-router";
 import { Dimensions, Pressable, useColorScheme } from "react-native";
 
 import Colors from "../../constants/Colors";
 import { View } from "../../components/Themed";
 import { Avatar, FAB, IconButton } from "react-native-paper";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -48,9 +48,21 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="two"
+          name="cart"
           options={{
-            title: "Tab Two",
+            title: "",
+            headerTitle: "Cart",
+            headerTitleAlign: "center",
+            headerLeft: () => (
+              <Ionicons
+                style={{ paddingHorizontal: 20 }}
+                name="return-down-back-outline"
+                size={25}
+                onPress={() => {
+                  router.back();
+                }}
+              />
+            ),
             tabBarIcon: ({ color }) => (
               <TabBarIcon name="shoppingcart" color={color} />
             ),

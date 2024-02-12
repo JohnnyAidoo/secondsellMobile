@@ -26,36 +26,46 @@ function CardComp(props: {
         borderRadius: 10,
       }}
     >
-      <Link href={`/${props.id}`}>
+      <Pressable onPress={() => router.push(`/${props.id}`)}>
         <Image
-          resizeMode="center"
-          resizeMethod="scale"
-          width={100}
+          style={{ marginLeft: 15 }}
+          resizeMode="contain"
+          width={150}
           height={100}
           source={{
             uri: props.image,
           }}
         />
-      </Link>
-      <View style={{ gap: 5, display: "flex", backgroundColor: "white" }}>
-        <Text id="title" variant="titleMedium" style={{ fontWeight: "bold" }}>
-          {props.title}
-        </Text>
-        <Text id="category" variant="labelLarge">
-          {props.category}
-        </Text>
-        <Text
-          variant="headlineMedium"
+
+        <View
           style={{
-            fontWeight: "bold",
-            color: Colors.light.tint,
-            textAlign: "left",
+            gap: 5,
+            display: "flex",
+            backgroundColor: "white",
+            width: "100%",
+            marginHorizontal: 20,
           }}
         >
-          £{props.price}
-        </Text>
-      </View>
+          <Text id="title" variant="titleMedium" style={{ fontWeight: "bold" }}>
+            {props.title}
+          </Text>
+          <Text id="category" variant="labelLarge">
+            {props.category}
+          </Text>
+          <Text
+            variant="headlineMedium"
+            style={{
+              fontWeight: "bold",
+              color: Colors.light.tint,
+              textAlign: "left",
+            }}
+          >
+            £{props.price}
+          </Text>
+        </View>
+      </Pressable>
       <IconButton
+        onPress={() => router.push(`/${props.id}`)}
         style={{
           position: "absolute",
           bottom: -10,
@@ -66,7 +76,7 @@ function CardComp(props: {
         }}
         iconColor="white"
         icon="bookmark-outline"
-        size={15}
+        size={20}
       />
     </Surface>
   );

@@ -19,6 +19,7 @@ export default function Electronics() {
   };
 
   const [products, setProducts] = useState<ProductType[]>();
+  const [Ad, setAd] = useState<ProductType>();
   const WIDTH = Dimensions.get("screen").width;
 
   useEffect(() => {
@@ -26,8 +27,9 @@ export default function Electronics() {
       .get("https://fakestoreapi.com/products/category/electronics")
       .then((res: any) => {
         setProducts(res.data);
+        setAd(res.data[Math.floor(Math.random() * 4)]);
       });
-  });
+  }, []);
   return (
     <>
       <StatusBar />
@@ -58,18 +60,17 @@ export default function Electronics() {
               <Text variant="displayMedium" style={{ fontWeight: "bold" }}>
                 Arrivals
               </Text>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi
-                soluta, ipsa aspernatur obcaecati! Reprehenderit, accusamus?
-              </Text>
+              <Text>{Ad?.title}</Text>
             </Animatable.View>
           </View>
-          <View style={{ width: "50%" }}>
+          <View style={{ width: "50%", backgroundColor: "white" }}>
             <Animatable.Image
+              resizeMethod="scale"
+              resizeMode="center"
               animation="fadeInLeftBig"
               style={{ width: WIDTH / 2.5, height: "auto", aspectRatio: 1 }}
               source={{
-                uri: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                uri: Ad?.image,
               }}
             />
           </View>
