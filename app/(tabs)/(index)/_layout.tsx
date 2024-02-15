@@ -4,6 +4,9 @@ import { Pressable } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Avatar, Text } from "react-native-paper";
 import Colors from "../../../constants/Colors";
+import { useEffect } from "react";
+import { router } from "expo-router";
+import { useFocusEffect } from "expo-router/src/useFocusEffect";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof AntDesign>["name"];
@@ -11,8 +14,17 @@ function TabBarIcon(props: {
 }) {
   return <AntDesign size={28} style={{ marginBottom: -3 }} {...props} />;
 }
+const authenticated = false;
 
 function DrawerLayout() {
+  useFocusEffect(() => {
+    const checkForAuthenticated = () => {
+      !authenticated ? router.replace("/auth/signup") : null;
+    };
+
+    checkForAuthenticated();
+  });
+
   return (
     <Drawer screenOptions={{ headerTintColor: "black" }}>
       <Drawer.Screen
