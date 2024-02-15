@@ -50,17 +50,6 @@ function SignUp() {
               Creat An Account
             </Text>
             <TextInput
-              placeholder="name"
-              mode="outlined"
-              outlineStyle={{
-                borderRadius: 30,
-                borderColor: "transparent",
-                backgroundColor: Colors.light.background,
-              }}
-              style={{ width: "100%" }}
-              activeOutlineColor={Colors.light.tint}
-            />
-            <TextInput
               placeholder="email"
               mode="outlined"
               outlineStyle={{
@@ -117,10 +106,10 @@ function SignUp() {
             }}
           >
             <Text style={{ textAlign: "center" }}>
-              You Already have an Account?{" "}
-              <Link href={"/auth/login"}>
+              Don't an Account?{" "}
+              <Link href={"/auth/signup"}>
                 <Text variant="bodyLarge" style={{ color: Colors.light.tint }}>
-                  Login
+                  Sign Up
                 </Text>
               </Link>
             </Text>
