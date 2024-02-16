@@ -14,7 +14,7 @@ function TabBarIcon(props: {
 }) {
   return <AntDesign size={28} style={{ marginBottom: -3 }} {...props} />;
 }
-const authenticated = false;
+const authenticated = true;
 
 function DrawerLayout() {
   useFocusEffect(() => {

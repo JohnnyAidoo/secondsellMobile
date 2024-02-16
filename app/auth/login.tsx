@@ -1,4 +1,4 @@
-import { ImageBackground, View } from "react-native";
+import { View } from "react-native";
 import { Button, Divider, Surface, Text, TextInput } from "react-native-paper";
 import { Dimensions } from "react-native";
 import Colors from "../../constants/Colors";
@@ -12,7 +12,10 @@ function SignUp() {
     <>
       <Stack.Screen
         options={{
-          headerShown: false,
+          headerTitle: "",
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Colors.light.tint },
+          headerLeft: () => <></>,
         }}
       />
 
@@ -29,7 +32,7 @@ function SignUp() {
         <View
           style={{
             width: "100%",
-            height: "50%",
+            height: "70%",
             display: "flex",
             justifyContent: "space-around",
             paddingHorizontal: 20,
@@ -47,7 +50,7 @@ function SignUp() {
                 marginBottom: 20,
               }}
             >
-              Creat An Account
+              Welcome Back
             </Text>
             <TextInput
               placeholder="email"
@@ -119,26 +122,12 @@ function SignUp() {
       <Svg
         style={{
           width: WIDTH,
-          height: HEIGHT / 5,
+          height: 150,
           position: "absolute",
           top: 0,
-          borderBottomEndRadius: 50,
-          justifyContent: "flex-end",
-          alignItems: "center",
+          marginTop: -50,
         }}
-      >
-        <Text
-          variant="headlineLarge"
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            textAlign: "center",
-            marginBottom: 30,
-          }}
-        >
-          Second Sell
-        </Text>
-      </Svg>
+      ></Svg>
     </>
   );
 }
